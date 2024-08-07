@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Recruiting Information Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            background-color: #EEE0CB;
+            color: #293241;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-primary {
+            background-color: #850928;
+            border-color: #850928;
+        }
+        .btn-primary:hover {
+            background-color: #850928;
+            border-color: #850928;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: #850928;
+        }
+        .navbar-light .navbar-brand {
+            color: #850928;
+        }
+        .card {
+            border-color: #BAA898;
+        }
+        .card-body {
+            background-color: #BAA898;
+        }
+        h1, h2, h5, p {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Student Recruiting</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Welcome to Student Recruiting Information Management</h1>
+                <p class="lead">You are about to connect to a secured information system. Access to this system is for official business only.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Login</h5>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5" id="about">
+            <div class="col">
+                <h2>About</h2>
+                <p>This system is designed to streamline the student recruitment process by providing an organized and efficient platform for managing applications, communication, and tracking progress for both admissions officers and students.</p>
+            </div>
+        </div>
+
+        <div class="row mt-5" id="contact">
+            <div class="col">
+                <h2>Contact</h2>
+                <p>If you have any questions or need support, please contact our support team at support@university.edu or call us at (123) 456-7890.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+
+            if (username === 'AdvisorJohn') {
+                window.location.href = 'advisorPage.html';
+            } else if (username === 'SamanthaPioneer') {
+                window.location.href = 'applicantPage.html';
+            } else if (username === 'MarkDoe') {
+                window.location.href = 'studentPage.html';
+            } else {
+                alert('Invalid username');
+            }
+        });
+    </script>
+</body>
+</html>

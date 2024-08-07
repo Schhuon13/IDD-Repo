@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unenroll/Drop Application - Student Recruiting Information Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-primary {
+            background-color: #850928;
+            border-color: #850928;
+        }
+        .btn-primary:hover {
+            background-color: #6b0721;
+            border-color: #6b0721;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: #000000;
+        }
+        .navbar-light .navbar-brand {
+            color: #000000;
+        }
+        .card {
+            border-color: #850928;
+        }
+        .card-body {
+            background-color: #F8F8F8;
+        }
+        h1, h2, h5, p {
+            color: #000000;
+        }
+        .form-label {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Student Recruiting</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Unenroll/Drop Application</h1>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Unenroll/Drop Application</h5>
+                <form>
+                    <div class="form-group">
+                        <label for="unenrollFullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="unenrollFullName" placeholder="Enter full name">
+                    </div>
+                    <button type="submit" class="btn btn-danger">Unenroll</button>
+                </form>
+                <p class="mt-3">Note: Drops will be effective in 24-48 hours.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

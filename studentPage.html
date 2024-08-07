@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Page - Student Recruiting Information Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-primary {
+            background-color: #850928;
+            border-color: #850928;
+        }
+        .btn-primary:hover {
+            background-color: #6b0721;
+            border-color: #6b0721;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: #000000;
+        }
+        .navbar-light .navbar-brand {
+            color: #000000;
+        }
+        .navbar-secondary .nav-link {
+            color: #850928;
+        }
+        .navbar-secondary .nav-link.active {
+            background-color: #850928;
+            color: #ffffff;
+        }
+        .card {
+            border-color: #850928;
+        }
+        .card-body {
+            background-color: #F8F8F8;
+        }
+        h1, h2, h5, p {
+            color: #000000;
+        }
+        .form-label {
+            color: #000000;
+        }
+        .table-checklist tbody tr td:first-child {
+            width: 1%;
+            white-space: nowrap;
+        }
+        .nav-tabs .nav-link.active {
+            background-color: #850928;
+            color: #ffffff;
+        }
+        .nav-tabs .nav-link {
+            color: #850928;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Student Recruiting</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Welcome, Samantha Pioneer!</h1>
+        <p class="lead">You can access and manage your personal information, financial aid details, enroll in courses, view student progress, and schedule courses.</p>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-secondary">
+            <div class="collapse navbar-collapse" id="secondaryNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="personal-info-tab">Personal Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="financial-aid-tab">Financial Aid</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="emergency-contact-tab">Emergency Contact Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="enroll-courses-tab">Enroll in Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="student-progress-tab">Student Progress</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="schedule-courses-tab">Schedule Courses</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="content mt-3">
+            <div id="personal-info-content" class="content-section">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Personal Information</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" value="Samantha Pioneer">
+                            </div>
+                            <div class="form-group">
+                                <label for="dob" class="form-label">Date of Birth</label>
+                                <input type="date" class="form-control" id="dob" value="2000-12-25">
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" value="304 Administration Drive, Denton, TX 76204">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="financial-aid-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Financial Aid</h5>
+                        <p class="lead">Congratulations! You've completed your Financial Aid checklist.</p>
+                        <p>You successfully completed all the items on your Financial Aid checklist.</p>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Checklist</h6>
+                                <table class="table table-bordered table-checklist">
+                                    <tbody>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Submit a Free Application for Federal Student Aid (FAFSA)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Complete required documents</td>
+                                        </tr>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Your application is being reviewed by the Financial Aid Office</td>
+                                        </tr>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Review and accept your Financial Aid Award Package</td>
+                                        </tr>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Review and sign your Financial Aid Offer Letter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-4">
+                                <h6>Student Finance Account Summary</h6>
+                                <ul class="list-unstyled">
+                                    <li>Amount Due: <span style="color: red;">-$927.00</span></li>
+                                    <li>Amount Overdue: $0.00</li>
+                                    <li>Total Amount Due: <span style="color: red;">-$927.00</span></li>
+                                </ul>
+                                <a href="#" class="btn btn-primary">Go to Account Summary</a>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h6>Loan History</h6>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Loan Number</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00364600</td>
+                                        <td>$5,367</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Loan Amount:</td>
+                                        <td>$5,367</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-4">
+                            <h6>Resources</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="#">FAFSA4Caster</a></li>
+                                <li><a href="#">Master Promissory Note</a></li>
+                                <li><a href="#">Entrance Counseling</a></li>
+                                <li><a href="#">PLUS Loan Application</a></li>
+                                <li><a href="#">NSLDS Information</a></li>
+                                <li><a href="#">FAFSA Application</a></li>
+                                <li><a href="#">Scholarship Application</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="emergency-contact-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Emergency Contact Information</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="emergencyContact1" class="form-label">Emergency Contact Name 1</label>
+                                <input type="text" class="form-control" id="emergencyContact1" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContactDOB1" class="form-label">Emergency Contact DOB 1</label>
+                                <input type="date" class="form-control" id="emergencyContactDOB1" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContactAddress1" class="form-label">Emergency Contact Address 1</label>
+                                <input type="text" class="form-control" id="emergencyContactAddress1" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContact2" class="form-label">Emergency Contact Name 2 (Optional)</label>
+                                <input type="text" class="form-control" id="emergencyContact2" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContactDOB2" class="form-label">Emergency Contact DOB 2 (Optional)</label>
+                                <input type="date" class="form-control" id="emergencyContactDOB2" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContactAddress2" class="form-label">Emergency Contact Address 2 (Optional)</label>
+                                <input type="text" class="form-control" id="emergencyContactAddress2" value="---">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="enroll-courses-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Enroll in Courses</h5>
+                        <ul class="nav nav-tabs" id="enrollTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="subject-search-tab" data-toggle="tab" href="#subject-search" role="tab" aria-controls="subject-search" aria-selected="true">Subject Search</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="advanced-search-tab" data-toggle="tab" href="#advanced-search" role="tab" aria-controls="advanced-search" aria-selected="false">Advanced Search</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="enrollTabContent">
+                            <div class="tab-pane fade show active" id="subject-search" role="tabpanel" aria-labelledby="subject-search-tab">
+                                <input class="form-control mt-3" type="text" placeholder="Search for a course subject...">
+                                <ul class="list-group mt-3">
+                                    <li class="list-group-item"><a href="#">Accounting</a></li>
+                                    <li class="list-group-item"><a href="#">Art</a></li>
+                                    <li class="list-group-item"><a href="#">Aviation Sciences</a></li>
+                                    <li class="list-group-item"><a href="#">Bacteriology</a></li>
+                                    <li class="list-group-item"><a href="#">Bilingual Education</a></li>
+                                    <li class="list-group-item"><a href="#">Biology</a></li>
+                                    <li class="list-group-item"><a href="#">Botany</a></li>
+                                    <li class="list-group-item"><a href="#">Business</a></li>
+                                    <li class="list-group-item"><a href="#">Chemistry</a></li>
+                                    <li class="list-group-item"><a href="#">Communication Science</a></li>
+                                    <li class="list-group-item"><a href="#">Computer Science</a></li>
+                                    <li class="list-group-item"><a href="#">Counseling</a></li>
+                                    <li class="list-group-item"><a href="#">Culinary</a></li>
+                                    <li class="list-group-item"><a href="#">Dance</a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane fade" id="advanced-search" role="tabpanel" aria-labelledby="advanced-search-tab">
+                                <form class="mt-3">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="term">Term</label>
+                                            <select class="form-control" id="term">
+                                                <option>Select Term</option>
+                                                <option>Fall 2024</option>
+                                                <option>Spring 2025</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="startDate">Meeting Start Date</label>
+                                            <input type="date" class="form-control" id="startDate">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="endDate">Meeting End Date</label>
+                                            <input type="date" class="form-control" id="endDate">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="subject1">Subject</label>
+                                            <input type="text" class="form-control" id="subject1">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="courseNumber1">Course Number</label>
+                                            <input type="text" class="form-control" id="courseNumber1">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="section1">Section</label>
+                                            <input type="text" class="form-control" id="section1">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="subject2">Subject</label>
+                                            <input type="text" class="form-control" id="subject2">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="courseNumber2">Course Number</label>
+                                            <input type="text" class="form-control" id="courseNumber2">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="section2">Section</label>
+                                            <input type="text" class="form-control" id="section2">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="student-progress-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Student Progress</h5>
+                        <p>Student Name: Samantha Pioneer</p>
+                        <p>Student ID: 1356923</p>
+                        <p>Cumulative GPA: 3.513 (2.000 required)</p>
+                        <p>Institution GPA: 3.623 (2.000 required)</p>
+                        <p>Degree: Bachelor of Science</p>
+                        <p>Majors: Computer Science</p>
+                        <p>Minors: Cybersecurity, Psychology</p>
+                        <p>Departments: Mathematics</p>
+                        <p>Catalog: 2021</p>
+                        <p>Anticipated Completion Date: 1/9/2027</p>
+                        <p>Academic Level Standing: Undergraduate Degree - In Good Standing</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">Progress: 70%</div>
+                        </div>
+                        <p>Total Credits: 84 of 120</p>
+                        <p>Total Credits from this School: 69 of 30</p>
+                        <h6>Requirements</h6>
+                        <p>2021 Core Requirements</p>
+                        <p>Must have 2.000 minimum GPA for this requirement. Current GPA: 3.818</p>
+                        <p>Complete all of the following items. 8 of 10 Completed. Fully Planned</p>
+                        <p>Global Perspectives Requirement</p>
+                        <p>Complete the following item. 1 of 1 Completed. Fully Planned</p>
+                        <p>Computer Science Major</p>
+                        <p>Must have 2.000 minimum GPA for this requirement. Current GPA: 3.188</p>
+                        <p>Complete all of the following items. 0 of 2 Completed. Fully Planned</p>
+                        <p>Department Requirements</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="schedule-courses-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Schedule Courses</h5>
+                        <p>Term: Fall 2024</p>
+                        <button class="btn btn-primary">Register Now</button>
+                        <table class="table table-bordered mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Sunday</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                    <th>Saturday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>8am</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>9am</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>10am</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>PSY*2303-01</td>
+                                    <td></td>
+                                    <td>HIST*1023-01</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>11am</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>12pm</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>1pm</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>2pm</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>3pm</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>4pm</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>5pm</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h6>Registered Courses</h6>
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>CSCI*3413-50: Software Engineering</h6>
+                                <p>Registered, but not started</p>
+                                <p>Credits: 3</p>
+                                <p>Grading: Graded</p>
+                                <p>Instructor: Zhang, J</p>
+                                <p>Meeting Information</p>
+                                <button class="btn btn-danger">Drop</button>
+                            </div>
+                        </div>
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <h6>CSCI*3603-50: Foundations of Data Science</h6>
+                                <p>Registered, but not started</p>
+                                <p>Credits: 3</p>
+                                <p>Grading: Graded</p>
+                                <p>Instructor: Ebeid, I</p>
+                                <p>Meeting Information</p>
+                                <button class="btn btn-danger">Drop</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#personal-info-tab').click(function() {
+                $('.content-section').hide();
+                $('#personal-info-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#financial-aid-tab').click(function() {
+                $('.content-section').hide();
+                $('#financial-aid-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#emergency-contact-tab').click(function() {
+                $('.content-section').hide();
+                $('#emergency-contact-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#enroll-courses-tab').click(function() {
+                $('.content-section').hide();
+                $('#enroll-courses-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#student-progress-tab').click(function() {
+                $('.content-section').hide();
+                $('#student-progress-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#schedule-courses-tab').click(function() {
+                $('.content-section').hide();
+                $('#schedule-courses-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#personal-info-tab').click(); // Show personal info by default
+        });
+    </script>
+</body>
+</html>

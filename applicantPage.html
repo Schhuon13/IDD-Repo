@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Page - Student Recruiting Information Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-primary {
+            background-color: #850928;
+            border-color: #850928;
+        }
+        .btn-primary:hover {
+            background-color: #6b0721;
+            border-color: #6b0721;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: #000000;
+        }
+        .navbar-light .navbar-brand {
+            color: #000000;
+        }
+        .navbar-secondary .nav-link {
+            color: #850928;
+        }
+        .navbar-secondary .nav-link.active {
+            background-color: #850928;
+            color: #ffffff;
+        }
+        .card {
+            border-color: #850928;
+        }
+        .card-body {
+            background-color: #F8F8F8;
+        }
+        h1, h2, h5, p {
+            color: #000000;
+        }
+        .form-label {
+            color: #000000;
+        }
+        .table-checklist tbody tr td:first-child {
+            width: 1%;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Student Recruiting</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Welcome, Samantha Pioneer!</h1>
+        <p class="lead">You can access and manage your personal information, application status, financial aid details, and emergency contact information.</p>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-secondary">
+            <div class="collapse navbar-collapse" id="secondaryNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="personal-info-tab">Personal Info & Application Status</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="financial-aid-tab">Financial Aid</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="emergency-contact-tab">Emergency Contact Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="unenroll.html">Unenroll/Drop Application</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="content mt-3">
+            <div id="personal-info-content" class="content-section">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Personal Information</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" value="Samantha Pioneer">
+                            </div>
+                            <div class="form-group">
+                                <label for="dob" class="form-label">Date of Birth</label>
+                                <input type="date" class="form-control" id="dob" value="2000-12-25">
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" value="304 Administration Drive, Denton, TX 76204">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Application Status</h5>
+                        <p>Status: Accepted</p>
+                    </div>
+                </div>
+                <div class="card mt-4" id="tsiScores">
+                    <div class="card-body">
+                        <h5 class="card-title">TSI Scores</h5>
+                        <p>TSI: Exempt</p>
+                    </div>
+                </div>
+                <div class="card mt-4" id="satActScores">
+                    <div class="card-body">
+                        <h5 class="card-title">SAT/ACT Scores</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>SAT</td>
+                                    <td>1280</td>
+                                </tr>
+                                <tr>
+                                    <td>ACT</td>
+                                    <td>22</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="financial-aid-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Financial Aid</h5>
+                        <p class="lead">Congratulations! You've completed your Financial Aid checklist.</p>
+                        <p>You successfully completed all the items on your Financial Aid checklist.</p>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Checklist</h6>
+                                <table class="table table-bordered table-checklist">
+                                    <tbody>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Submit a Free Application for Federal Student Aid (FAFSA)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Complete required documents</td>
+                                        </tr>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Your application is being reviewed by the Financial Aid Office</td>
+                                        </tr>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Review and accept your Financial Aid Award Package</td>
+                                        </tr>
+                                        <tr>
+                                            <td>✔️</td>
+                                            <td>Review and sign your Financial Aid Offer Letter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-4">
+                                <h6>Student Finance Account Summary</h6>
+                                <ul class="list-unstyled">
+                                    <li>Amount Due: <span style="color: red;">-$927.00</span></li>
+                                    <li>Amount Overdue: $0.00</li>
+                                    <li>Total Amount Due: <span style="color: red;">-$927.00</span></li>
+                                </ul>
+                                <a href="#" class="btn btn-primary">Go to Account Summary</a>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h6>Loan History</h6>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Loan Number</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00364600</td>
+                                        <td>$5,367</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Loan Amount:</td>
+                                        <td>$5,367</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-4">
+                            <h6>Resources</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="#">FAFSA4Caster</a></li>
+                                <li><a href="#">Master Promissory Note</a></li>
+                                <li><a href="#">Entrance Counseling</a></li>
+                                <li><a href="#">PLUS Loan Application</a></li>
+                                <li><a href="#">NSLDS Information</a></li>
+                                <li><a href="#">FAFSA Application</a></li>
+                                <li><a href="#">Scholarship Application</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="emergency-contact-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Emergency Contact Information</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="emergencyContact1" class="form-label">Emergency Contact Name 1</label>
+                                <input type="text" class="form-control" id="emergencyContact1" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContactDOB1" class="form-label">Emergency Contact DOB 1</label>
+                                <input type="date" class="form-control" id="emergencyContactDOB1" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContactAddress1" class="form-label">Emergency Contact Address 1</label>
+                                <input type="text" class="form-control" id="emergencyContactAddress1" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContact2" class="form-label">Emergency Contact Name 2 (Optional)</label>
+                                <input type="text" class="form-control" id="emergencyContact2" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContactDOB2" class="form-label">Emergency Contact DOB 2 (Optional)</label>
+                                <input type="date" class="form-control" id="emergencyContactDOB2" value="---">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyContactAddress2" class="form-label">Emergency Contact Address 2 (Optional)</label>
+                                <input type="text" class="form-control" id="emergencyContactAddress2" value="---">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#personal-info-tab').click(function() {
+                $('.content-section').hide();
+                $('#personal-info-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#financial-aid-tab').click(function() {
+                $('.content-section').hide();
+                $('#financial-aid-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#emergency-contact-tab').click(function() {
+                $('.content-section').hide();
+                $('#emergency-contact-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#personal-info-tab').click(); // Show personal info by default
+        });
+    </script>
+</body>
+</html>
