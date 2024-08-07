@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisor Page - Student Recruiting Information Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-primary {
+            background-color: #850928;
+            border-color: #850928;
+        }
+        .btn-primary:hover {
+            background-color: #6b0721;
+            border-color: #6b0721;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: #000000;
+        }
+        .navbar-light .navbar-brand {
+            color: #000000;
+        }
+        .navbar-secondary .nav-link {
+            color: #850928;
+        }
+        .navbar-secondary .nav-link.active {
+            background-color: #850928;
+            color: #ffffff;
+        }
+        .card {
+            border-color: #850928;
+        }
+        .card-body {
+            background-color: #F8F8F8;
+        }
+        h1, h2, h5, p {
+            color: #000000;
+        }
+        .form-label {
+            color: #000000;
+        }
+        .table-checklist tbody tr td:first-child {
+            width: 1%;
+            white-space: nowrap;
+        }
+        .nav-tabs .nav-link.active {
+            background-color: #850928;
+            color: #ffffff;
+        }
+        .nav-tabs .nav-link {
+            color: #850928;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Student Recruiting</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Welcome, Advisor John!</h1>
+        <p class="lead">Manage your student advising tasks efficiently. Here you can access student profiles, schedule appointments, review academic progress, and more.</p>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-secondary">
+            <div class="collapse navbar-collapse" id="secondaryNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="dashboard-tab">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="student-search-tab">Student Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="appointments-tab">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="academic-advising-tab">Academic Advising</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="communication-tab">Communication</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="reports-tab">Reports</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="content mt-3">
+            <div id="dashboard-content" class="content-section">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Advisor Dashboard</h5>
+                        <p>Assigned Students: 30</p>
+                        <p>Upcoming Appointments: 3</p>
+                        <p>Notifications: 2</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="student-search-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Student Search</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="studentName" class="form-label">Student Name</label>
+                                <input type="text" class="form-control" id="studentName" placeholder="Enter student name">
+                            </div>
+                            <div class="form-group">
+                                <label for="studentID" class="form-label">Student ID</label>
+                                <input type="text" class="form-control" id="studentID" placeholder="Enter student ID">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="appointments-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Appointment Scheduling</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="appointmentDate" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="appointmentDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime" class="form-label">Time</label>
+                                <input type="time" class="form-control" id="appointmentTime">
+                            </div>
+                            <div class="form-group">
+                                <label for="studentSelect" class="form-label">Student</label>
+                                <select class="form-control" id="studentSelect">
+                                    <option>Select Student</option>
+                                    <option>Samantha Pioneer</option>
+                                    <option>Mark Doe</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="academic-advising-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Academic Advising</h5>
+                        <p>Review student progress, suggest courses, and plan academic paths.</p>
+                        <form>
+                            <div class="form-group">
+                                <label for="studentSelectAdvising" class="form-label">Student</label>
+                                <select class="form-control" id="studentSelectAdvising">
+                                    <option>Select Student</option>
+                                    <option>Samantha Pioneer</option>
+                                    <option>Mark Doe</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">View Progress</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="communication-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Communication Tools</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="messageSubject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="messageSubject" placeholder="Enter subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="messageBody" class="form-label">Message</label>
+                                <textarea class="form-control" id="messageBody" rows="3" placeholder="Enter your message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentSelectMessage" class="form-label">Student</label>
+                                <select class="form-control" id="studentSelectMessage">
+                                    <option>Select Student</option>
+                                    <option>Samantha Pioneer</option>
+                                    <option>Mark Doe</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reports-content" class="content-section" style="display:none;">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Reports and Analytics</h5>
+                        <p>Access detailed reports on student performance, retention rates, and other analytics.</p>
+                        <form>
+                            <div class="form-group">
+                                <label for="reportType" class="form-label">Report Type</label>
+                                <select class="form-control" id="reportType">
+                                    <option>Select Report Type</option>
+                                    <option>Performance Report</option>
+                                    <option>Retention Report</option>
+                                    <option>Graduation Report</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Generate Report</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dashboard-tab').click(function() {
+                $('.content-section').hide();
+                $('#dashboard-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#student-search-tab').click(function() {
+                $('.content-section').hide();
+                $('#student-search-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#appointments-tab').click(function() {
+                $('.content-section').hide();
+                $('#appointments-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#academic-advising-tab').click(function() {
+                $('.content-section').hide();
+                $('#academic-advising-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#communication-tab').click(function() {
+                $('.content-section').hide();
+                $('#communication-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#reports-tab').click(function() {
+                $('.content-section').hide();
+                $('#reports-content').show();
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#dashboard-tab').click(); // Show dashboard by default
+        });
+    </script>
+</body>
+</html>
