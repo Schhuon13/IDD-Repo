@@ -56,6 +56,13 @@
         .nav-tabs .nav-link {
             color: #850928;
         }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(133, 9, 40, 0.05);
+        }
     </style>
 </head>
 <body>
@@ -81,7 +88,7 @@
             <div class="collapse navbar-collapse" id="secondaryNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="dashboard-tab">Dashboard</a>
+                        <a class="nav-link active" href="#" id="dashboard-tab">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="student-search-tab">Student Search</a>
@@ -104,16 +111,49 @@
 
         <div class="content mt-3">
             <div id="dashboard-content" class="content-section">
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Advisor Dashboard</h5>
-                        <p>Assigned Students: 30</p>
-                        <p>Upcoming Appointments: 3</p>
-                        <p>Notifications: 2</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Advisor Dashboard</h5>
+                                <p>Assigned Students: <span id="assigned-students">30</span></p>
+                                <p>Upcoming Appointments: <span id="upcoming-appointments">3</span></p>
+                                <p>Notifications: <span id="notifications">2</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Performance Overview</h5>
+                                <canvas id="performanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Student List</h5>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Contact Number</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="student-list">
+                                        <!-- Student rows will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
             <div id="student-search-content" class="content-section" style="display:none;">
                 <div class="card mt-4">
                     <div class="card-body">
@@ -174,7 +214,7 @@
                                     <option>Mark Doe</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">View Progress</button>
+                            <button type="submit" class="btn btn-primary">Review Progress</button>
                         </form>
                     </div>
                 </div>
@@ -183,7 +223,8 @@
             <div id="communication-content" class="content-section" style="display:none;">
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h5 class="card-title">Communication Tools</h5>
+                        <h5 class="card-title">Communication Center</h5>
+                        <p>Send messages to students and keep track of communication history.</p>
                         <form>
                             <div class="form-group">
                                 <label for="messageSubject" class="form-label">Subject</label>
@@ -191,11 +232,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="messageBody" class="form-label">Message</label>
-                                <textarea class="form-control" id="messageBody" rows="3" placeholder="Enter your message"></textarea>
+                                <textarea class="form-control" id="messageBody" rows="5" placeholder="Enter message"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="studentSelectMessage" class="form-label">Student</label>
-                                <select class="form-control" id="studentSelectMessage">
+                                <label for="studentSelectCommunication" class="form-label">Student</label>
+                                <select class="form-control" id="studentSelectCommunication">
                                     <option>Select Student</option>
                                     <option>Samantha Pioneer</option>
                                     <option>Mark Doe</option>
@@ -210,16 +251,15 @@
             <div id="reports-content" class="content-section" style="display:none;">
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h5 class="card-title">Reports and Analytics</h5>
-                        <p>Access detailed reports on student performance, retention rates, and other analytics.</p>
+                        <h5 class="card-title">Reports</h5>
+                        <p>Generate reports on student performance, appointments, and other metrics.</p>
                         <form>
                             <div class="form-group">
                                 <label for="reportType" class="form-label">Report Type</label>
                                 <select class="form-control" id="reportType">
                                     <option>Select Report Type</option>
-                                    <option>Performance Report</option>
-                                    <option>Retention Report</option>
-                                    <option>Graduation Report</option>
+                                    <option>Performance</option>
+                                    <option>Appointments</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Generate Report</button>
@@ -230,48 +270,66 @@
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         $(document).ready(function() {
-            $('#dashboard-tab').click(function() {
-                $('.content-section').hide();
-                $('#dashboard-content').show();
-                $('.nav-link').removeClass('active');
-                $(this).addClass('active');
+            const studentList = [
+                { name: "Samantha Pioneer", email: "samantha@axu.edu", contact: "469-456-7890", status: "Active" },
+                { name: "Mark Doe", email: "mark@axu.edu", contact: "929-654-3210", status: "Pending" },
+                { name: "Emily Smith", email: "emily@axu.edu", contact: "817-123-4567", status: "Active" },
+            ];
+
+            function populateStudentList() {
+                const tbody = $("#student-list");
+                tbody.empty();
+                studentList.forEach(student => {
+                    tbody.append(`<tr>
+                        <td>${student.name}</td>
+                        <td>${student.email}</td>
+                        <td>${student.contact}</td>
+                        <td>${student.status}</td>
+                    </tr>`);
+                });
+            }
+
+            populateStudentList();
+
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            const performanceChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Samantha Pioneer', 'Mark Doe', 'Emily Smith'],
+                    datasets: [{
+                        label: 'Performance Score',
+                        data: [85, 78, 92],
+                        backgroundColor: ['rgba(133, 9, 40, 0.5)', 'rgba(133, 9, 40, 0.5)', 'rgba(133, 9, 40, 0.5)'],
+                        borderColor: ['rgba(133, 9, 40, 1)', 'rgba(133, 9, 40, 1)', 'rgba(133, 9, 40, 1)'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
             });
-            $('#student-search-tab').click(function() {
-                $('.content-section').hide();
-                $('#student-search-content').show();
-                $('.nav-link').removeClass('active');
-                $(this).addClass('active');
-            });
-            $('#appointments-tab').click(function() {
-                $('.content-section').hide();
-                $('#appointments-content').show();
-                $('.nav-link').removeClass('active');
-                $(this).addClass('active');
-            });
-            $('#academic-advising-tab').click(function() {
-                $('.content-section').hide();
-                $('#academic-advising-content').show();
-                $('.nav-link').removeClass('active');
-                $(this).addClass('active');
-            });
-            $('#communication-tab').click(function() {
-                $('.content-section').hide();
-                $('#communication-content').show();
-                $('.nav-link').removeClass('active');
-                $(this).addClass('active');
-            });
-            $('#reports-tab').click(function() {
-                $('.content-section').hide();
-                $('#reports-content').show();
-                $('.nav-link').removeClass('active');
-                $(this).addClass('active');
-            });
-            $('#dashboard-tab').click(); // Show dashboard by default
+
+            function showSection(sectionId) {
+                $(".content-section").hide();
+                $(`#${sectionId}-content`).show();
+            }
+
+            $("#dashboard-tab").click(() => showSection('dashboard'));
+            $("#student-search-tab").click(() => showSection('student-search'));
+            $("#appointments-tab").click(() => showSection('appointments'));
+            $("#academic-advising-tab").click(() => showSection('academic-advising'));
+            $("#communication-tab").click(() => showSection('communication'));
+            $("#reports-tab").click(() => showSection('reports'));
+
+            showSection('dashboard');
         });
     </script>
 </body>
